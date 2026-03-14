@@ -11,4 +11,4 @@ Há pastas especificadas para adicionarem os scrips (programação), Arts (Artes
 *PARA A PROGRAMAÇÃO:*
 - Não programe direto na Main!!!!!!!!!! Crie uma branch para fazer a implementação e testes do jogo. Quando estiver pronto e sem bugs (de preferência), aí sim joga para a branch principal
 
-É isso! Vamos fazer esse jogo ficar lindo 
+É isso! Vamos fazer esse jogo ficar lindo 🌸
