@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public float gameSpeed = 5f;
     public float speedIncrease = 0.1f;
 
+    public UnityEvent onPlay = new UnityEvent();
+    public UnityEvent onGameOver = new UnityEvent();
+
     void Update()
     {
         if (isPlaying)
@@ -21,12 +24,12 @@ public class GameManager : MonoBehaviour
             gameSpeed += speedIncrease * Time.deltaTime;
         }
 
-        // alterar
-        if (Input.GetKeyDown("k"))
-        {
-            isPlaying = true;
-        }
+    }
 
+    public void StartGame()
+    {
+        onPlay.Invoke();
+        isPlaying = true;
     }
     
     private void Awake()
@@ -42,6 +45,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        onGameOver.Invoke();
         currentScore = 0;
         isPlaying = false;
     }
