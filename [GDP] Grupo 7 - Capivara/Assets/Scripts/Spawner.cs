@@ -2,50 +2,57 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [Header("Obstáculos")]
-    [SerializeField] private GameObject[] groundObstacles;
-    [SerializeField] private GameObject[] airObstacles;
+    [SerializeField] private GameObject[] obstaclesPrefabs;
+    [SerializeField] private Transform obstacleParent;
+    public float obstaclesSpawnTime = 2f;
+    public float obstacleSpeed = 1f;
+    private float timeUntilObstacleSpawn;
 
-    [Header("Spawn Points")]
-    [SerializeField] private Transform groundSpawnPoint;
-    [SerializeField] private Transform airSpawnPoint;
-
-    [SerializeField] private float spawnTime = 2f;
 
     private float timer;
 
+    void Start()
+    {
+        GameManager.instance.onGameOver.AddListener(ClearObstacles);
+    }
+
     void Update()
     {
-        timer += Time.deltaTime;
-
-        if (timer >= spawnTime)
+        if (GameManager.instance.isPlaying)
         {
-            Spawn();
-            timer = 0f;
+            SpawnLoop();
         }
     }
 
-    void Spawn()
+    private void SpawnLoop()
     {
-        int type = Random.Range(0, 2);
+        timeUntilObstacleSpawn += Time.deltaTime;
 
-        GameObject prefab = null;
-        Vector3 pos = Vector3.zero;
+        if (timeUntilObstacleSpawn >= obstaclesSpawnTime)
+        {
+            Spawn();
+            timeUntilObstacleSpawn = 0f;
+        }
+    }
 
-        if (type == 0 && groundObstacles.Length > 0)
+    private void ClearObstacles()
+    {
+        foreach (Transform child in obstacleParent)
         {
-            prefab = groundObstacles[Random.Range(0, groundObstacles.Length)];
-            pos = groundSpawnPoint.position;
+            Destroy(child.gameObject);
         }
-        else if (type == 1 && airObstacles.Length > 0)
-        {
-            prefab = airObstacles[Random.Range(0, airObstacles.Length)];
-            pos = airSpawnPoint.position;
-        }
+    }
 
-        if (prefab != null)
-        {
-            Instantiate(prefab, pos, Quaternion.identity); // cria um novo prefab
-        }
+    private void Spawn()
+    {
+        GameObject obstacleToSpawn = obstaclesPrefabs[Random.Range(0, obstaclesPrefabs.Length)];
+
+        GameObject spawnedObstacle = Instantiate(obstacleToSpawn, transform.position, Quaternion.identity);
+
+        spawnedObstacle.transform.parent = obstacleParent;
+
+        Rigidbody2D obstacleRB = spawnedObstacle.GetComponent<Rigidbody2D>();
+
+        obstacleRB.linearVelocity = Vector2.left * obstacleSpeed;
     }
 }
