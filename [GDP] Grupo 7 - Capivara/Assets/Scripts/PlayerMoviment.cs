@@ -2,89 +2,62 @@ using UnityEngine;
 
 public class PlayerMoviment : MonoBehaviour
 {
-    private Animator animator;
-
-    [Header("Variaveis")]
-    [SerializeField] private float jumpForce = 16f;
-    [SerializeField] private float speed = 8f;
-
-    [Header("Gravidade")]
-    [SerializeField] private float normalGravity = 3f;
-    [SerializeField] private float fastFallGravity = 8f;
-
-    [Header("Referencias")]
-    [SerializeField] private SpriteRenderer sprite;
+    //Movimento
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Transform feetPos;
+    [SerializeField] private float groundDistance = 0.25f;
+    [SerializeField] private float jumpTime = 0.3f;
 
-    [Header("Booleans")]
-    [SerializeField] private bool isOnFloor;
+    //Animação
+    [SerializeField] private Animator _animator;
 
-    [Header("Checks")]
-    [SerializeField] private Transform floorCheck;
-    [SerializeField] private LayerMask floorLayer;
+    private bool isGrounded = false;
+    private bool isJumping = false;
+    private float jumpTimer;
 
-    private float moveInput;
-
-    void Start()
+    private void Update()
     {
-        animator = GetComponent<Animator>();
-        rb.gravityScale = normalGravity;
-    }
 
-    void Update()
-    {
-        // INPUT DE MOVIMENTO
-        moveInput = Input.GetAxisRaw("Horizontal");
-
-        // ANIMA��O DE CORRER
-        animator.SetBool("taCorrendo", moveInput != 0);
-
-        // VIRAR PERSONAGEM
-        if (moveInput > 0)
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
-        else if (moveInput < 0)
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
-
-        // PULO
-        if (Input.GetKeyDown(KeyCode.W) && isOnFloor)
+        if (!PauseMenu.isPaused)
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            isOnFloor = false;
-            animator.SetBool("taPulando", true);
-        }
+            //Animação
 
-        // QUEDA R�PIDA (FAST FALL)
-        if (Input.GetKey(KeyCode.S) && !isOnFloor)
-        {
-            rb.gravityScale = fastFallGravity;
-        }
-        else
-        {
-            rb.gravityScale = normalGravity;
-        }
-    }
+            //Movimento
+            isGrounded = Physics2D.OverlapCircle(feetPos.position, groundDistance, groundLayer);
 
-    void FixedUpdate()
-    {
-        // MOVIMENTO COM F�SICA
-        rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
-    }
+            if (isGrounded && Input.GetButtonDown("Jump"))
+            {
+                isJumping = true;
+                rb.linearVelocity = Vector2.up * jumpForce;
+                _animator.SetBool("isJumping", true);
+            }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Floor"))
-        {
-            isOnFloor = true;
-            rb.gravityScale = normalGravity;
-            animator.SetBool("taPulando", false);
+            if (isJumping && Input.GetButton("Jump"))
+            {
+                if (jumpTimer < jumpTime)
+                {
+                    rb.linearVelocity = Vector2.up * jumpForce;
+                    jumpTimer += Time.deltaTime;
+                }
+                else
+                {
+                    isJumping = false;
+                }
+            }
+
+            if (Input.GetButtonUp("Jump"))
+            {
+                isJumping = false;
+                jumpTimer = 0;
+                _animator.SetBool("isJumping", false);
+            }
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    public void Start()
     {
-        if (collision.gameObject.CompareTag("Floor"))
-        {
-            isOnFloor = false;
-        }
+        _animator.SetBool("isJumping", false);
     }
 }

@@ -2,32 +2,37 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private GameObject[] obstacles;
-    [SerializeField] private float spawnTime = 2f;
-    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private GameObject[] obstaclesPrefabs;
+    public float obstaclesSpawnTime = 2f;
+    public float obstacleSpeed = 1f;
+    private float timeUntilObstacleSpawn;
+
 
     private float timer;
 
     void Update()
     {
-        timer += Time.deltaTime;
-
-        if (timer >= spawnTime)
+        if (GameManager.instance.isPlaying)
         {
-            Spawn();
-            timer = 0;
+            SpawnLoop();
         }
     }
 
-    void Spawn()
+    private void SpawnLoop()
     {
-        if (obstacles.Length == 0) return;
+        timeUntilObstacleSpawn += Time.deltaTime;
 
-        int index = Random.Range(0, obstacles.Length);
-
-        if (obstacles[index] == null) return;
-
-        Instantiate(obstacles[index], spawnPoint.position, Quaternion.identity);
-        Debug.Log("Spawnando obstáculo");
+        if (timeUntilObstacleSpawn >= obstaclesSpawnTime)
+        {
+            Spawn();
+            timeUntilObstacleSpawn = 0f;
+        }
+    }
+    private void Spawn()
+    {
+        GameObject obstacleToSpawn = obstaclesPrefabs[Random.Range(0, obstaclesPrefabs.Length)];
+        GameObject spawnedObstacle = Instantiate(obstacleToSpawn, transform.position, Quaternion.identity);
+        Rigidbody2D obstacleRB = spawnedObstacle.GetComponent<Rigidbody2D>();
+        obstacleRB.linearVelocity = Vector2.left * obstacleSpeed;
     }
 }
