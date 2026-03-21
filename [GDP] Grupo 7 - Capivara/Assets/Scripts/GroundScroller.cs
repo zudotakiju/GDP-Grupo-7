@@ -16,7 +16,7 @@ public class GroundScroller : MonoBehaviour
         // reposiciona o chão (loop infinito)
         if (transform.position.x <= -width)
         {
-            transform.position = new Vector3(transform.position.x + (width * 2f), transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x + (width * 2.5f), transform.position.y, transform.position.z);
         }
     }
 }

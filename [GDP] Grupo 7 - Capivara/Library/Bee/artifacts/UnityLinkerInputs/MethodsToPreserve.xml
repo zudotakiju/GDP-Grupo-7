@@ -1,0 +1,26 @@
+<linker>
+	<assembly fullname="Assembly-CSharp" ignoreIfMissing="1">
+		<type fullname="PauseMenu">
+			<method name="GoToMainMenu"/>
+			<method name="QuitGame"/>
+			<method name="ResumeGame"/>
+		</type>
+		<type fullname="QuitGane">
+			<method name="QuitGame"/>
+		</type>
+		<type fullname="SwitchScene">
+			<method name="switchScenes"/>
+			<method name="switchScenes"/>
+			<method name="switchScenes"/>
+			<method name="switchScenes"/>
+		</type>
+		<type fullname="UiManager">
+			<method name="GoToMainMenu"/>
+		</type>
+	</assembly>
+	<assembly fullname="UnityEngine.CoreModule" ignoreIfMissing="1">
+		<type fullname="UnityEngine.GameObject">
+			<method name="SetActive"/>
+		</type>
+	</assembly>
+</linker>
