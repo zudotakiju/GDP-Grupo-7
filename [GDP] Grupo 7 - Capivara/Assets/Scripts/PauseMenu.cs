@@ -40,12 +40,6 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
     }
 
-    public void GoToMainMenu()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Main Menu");
-    }
-
     public void QuitGame()
     {
         Application.Quit();

@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
     public UnityEvent onPlay = new UnityEvent();
     public UnityEvent onGameOver = new UnityEvent();
 
+    void Start()
+    {
+        StartGame();
+    }
+
     void Update()
     {
         if (isPlaying)
@@ -30,6 +35,7 @@ public class GameManager : MonoBehaviour
     {
         onPlay.Invoke();
         isPlaying = true;
+        Time.timeScale = 1f;
     }
     
     private void Awake()
@@ -47,6 +53,7 @@ public class GameManager : MonoBehaviour
     {
         onGameOver.Invoke();
         currentScore = 0;
+        Time.timeScale = 0f;
         isPlaying = false;
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class UiManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreUI;
-    [SerializeField] private GameObject startMenuUI;
     [SerializeField] private GameObject gameOverUI;
 
     GameManager gm;
@@ -20,19 +19,21 @@ public class UiManager : MonoBehaviour
         scoreUI.text = gm.PrettyScore();
     }
 
+    public void ReplayButtonHandler()
+    {
+        gm.StartGame();
+        gameOverUI.SetActive(false);
+    }
+
     private void ActivateGameOverUI()
     {
         gameOverUI.SetActive(true);
     }
 
-    public void PlayButtonHandler()
+    public void GoToMainMenu()
     {
-        gm.StartGame();
-    }
-
-    public void GoToHistoryMenu()
-    {
-        SceneManager.LoadScene("History");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Main Menu");
     }
 
 }

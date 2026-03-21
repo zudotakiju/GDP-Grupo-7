@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1833033111433587315}
   - component: {fileID: 6184938162268682204}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Sapo
   m_TagString: Obstacle
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -59,7 +59,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 6
 --- !u!1 &6867890232131242223
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 1230734924674308505}
   - component: {fileID: 2391877222184979043}
   - component: {fileID: 2026300977058292171}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
