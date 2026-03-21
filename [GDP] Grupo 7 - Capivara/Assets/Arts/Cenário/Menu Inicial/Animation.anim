@@ -22,32 +22,32 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: -6132793395018472329, guid: 8b9e16494fdf4064e964d0d922ff6182, type: 3}
-    - time: 0.18333334
+    - time: 0.05
       value: {fileID: 6996388870077147275, guid: 8960d710a90ab71498897fbfc51d03b6, type: 3}
-    - time: 0.31666666
+    - time: 0.11666667
       value: {fileID: -3010259692064062411, guid: 8f8753e6d7b193941b1e2891b474189b, type: 3}
-    - time: 0.5
+    - time: 0.18333334
       value: {fileID: 1015393939384079712, guid: 33260689a3e7269468f89e8e4a345b24, type: 3}
-    - time: 0.6666667
+    - time: 0.25
       value: {fileID: 167901717341673732, guid: c9a8e3a50aa1a254dbfc6c6d48a6b280, type: 3}
-    - time: 0.85
+    - time: 0.3
       value: {fileID: -1986095745486363803, guid: 08974d36b8f582244a4e4be712484da0, type: 3}
-    - time: 0.98333335
+    - time: 0.36666667
       value: {fileID: -2264785607088042561, guid: 53cdb495a21f16e42a996891f0779361, type: 3}
-    - time: 1.1666666
+    - time: 0.41666666
       value: {fileID: 1916529402041650133, guid: 4e10e17dfacafe04cb628f77d79db51b, type: 3}
-    - time: 1.3333334
+    - time: 0.48333332
       value: {fileID: -2801007813500493365, guid: 660edf33614d51f49a254af51f42c3db, type: 3}
-    - time: 1.5166667
+    - time: 0.55
       value: {fileID: 2061175848645105396, guid: caec2b3c003d9f64eaadf204830508b9, type: 3}
-    - time: 1.65
+    - time: 0.6166667
       value: {fileID: 8380709937163146840, guid: aa79002ae7fd51d4f80d0007231a8cfd, type: 3}
-    - time: 1.8333334
+    - time: 0.6666667
       value: {fileID: 2842772201096811181, guid: 1b18d964422b23c44973c02c3655cc89, type: 3}
     attribute: m_Sprite
     path: 
-    classID: 114
-    script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+    classID: 212
+    script: {fileID: 0}
     flags: 2
   m_SampleRate: 60
   m_WrapMode: 0
@@ -58,10 +58,10 @@ AnimationClip:
     genericBindings:
     - serializedVersion: 2
       path: 0
-      attribute: 2015549526
-      script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-      typeID: 114
-      customType: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
       isPPtrCurve: 1
       isIntCurve: 0
       isSerializeReferenceCurve: 0
@@ -83,7 +83,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.85
+    m_StopTime: 0.68333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
