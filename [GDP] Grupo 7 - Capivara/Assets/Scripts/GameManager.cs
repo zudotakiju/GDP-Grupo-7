@@ -3,8 +3,9 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
     public float currentScore = 0f;
+
+    public Data data;
 
     public bool isPlaying = false;
 
@@ -17,16 +18,29 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        string loadedData = SaveSystem.Load("save");
+        if (loadedData != null)
+        {
+            data = JsonUtility.FromJson<Data>(loadedData);
+        }
+        else
+        {
+            data = new Data();
+        }
         StartGame();
     }
 
     void Update()
     {
-        if (isPlaying)
+
+        if (!PauseMenu.isPaused)
         {
-            currentScore += Time.deltaTime;
-            // aumenta dificuldade com o tempo
-            gameSpeed += speedIncrease * Time.deltaTime;
+            if (isPlaying)
+            {
+                currentScore += Time.deltaTime;
+                // aumenta dificuldade com o tempo
+                gameSpeed += speedIncrease * Time.deltaTime;
+            }
         }
 
     }
@@ -36,8 +50,9 @@ public class GameManager : MonoBehaviour
         onPlay.Invoke();
         isPlaying = true;
         Time.timeScale = 1f;
+        currentScore = 0;
     }
-    
+
     private void Awake()
     {
         if (instance == null)
@@ -49,11 +64,22 @@ public class GameManager : MonoBehaviour
         return Mathf.RoundToInt(currentScore).ToString();
     }
 
+    public string PrettyHighscore()
+    {
+        return Mathf.RoundToInt(data.highscore).ToString();
+    }
+
     public void GameOver()
     {
         onGameOver.Invoke();
-        currentScore = 0;
+        if (data.highscore < currentScore)
+        {
+            data.highscore = currentScore;
+            string saveString = JsonUtility.ToJson(data);
+            SaveSystem.Save("save", saveString);
+        }
         Time.timeScale = 0f;
         isPlaying = false;
+        PauseMenu.isPaused = false;
     }
 }
