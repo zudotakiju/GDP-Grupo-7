@@ -9,13 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 4f6a56e3e6c85224e86f69c0b1c00b34
   - enabled: 1
-    path: "Assets/Scenes/Cr\xE9ditos.unity"
-    guid: b6eb16c4b7df01d4c8fb58c33649aa87
-  - enabled: 1
-    path: "Assets/Scenes/Hist\xF3ria.unity"
-    guid: d3e33d372b365ec44be07a031d6a2fb5
-  - enabled: 1
     path: Assets/Scenes/Jogo.unity
     guid: 776d74154ba136040b1c993d09a62211
+  - enabled: 1
+    path: "Assets/Scenes/Cr\xE9ditos.unity"
+    guid: b6eb16c4b7df01d4c8fb58c33649aa87
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
