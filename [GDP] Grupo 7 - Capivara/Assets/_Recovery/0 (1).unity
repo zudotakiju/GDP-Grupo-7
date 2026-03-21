@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8500b7996f92844c952ae5dc0b52ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.UISoundTrigger
-  soundType: 0
+  soundType: 1
   playType: 1
   soundManager: {fileID: 1245711670}
 --- !u!1 &247071228
@@ -374,6 +374,7 @@ GameObject:
   - component: {fileID: 289363730}
   - component: {fileID: 289363729}
   - component: {fileID: 289363728}
+  - component: {fileID: 289363731}
   m_Layer: 5
   m_Name: Replay Button
   m_TagString: Untagged
@@ -507,6 +508,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289363726}
   m_CullTransparentMesh: 1
+--- !u!114 &289363731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289363726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8500b7996f92844c952ae5dc0b52ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.UISoundTrigger
+  soundType: 1
+  playType: 1
+  soundManager: {fileID: 1245711670}
 --- !u!1 &383609900
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,6 +750,7 @@ GameObject:
   - component: {fileID: 417042570}
   - component: {fileID: 417042569}
   - component: {fileID: 417042568}
+  - component: {fileID: 417042571}
   m_Layer: 5
   m_Name: Main Menu Button
   m_TagString: Untagged
@@ -867,6 +884,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417042566}
   m_CullTransparentMesh: 1
+--- !u!114 &417042571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417042566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8500b7996f92844c952ae5dc0b52ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.UISoundTrigger
+  soundType: 1
+  playType: 1
+  soundManager: {fileID: 1245711670}
 --- !u!1 &418140852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,7 +1084,7 @@ MonoBehaviour:
   obstaclesPrefabs:
   - {fileID: 2997147500336969028, guid: 1509b2e23e891014a997b4636e6f4f9e, type: 3}
   - {fileID: 1228643543121963641, guid: bca53d1371563ae46ad798d9b654d462, type: 3}
-  obstacleParent: {fileID: 0}
+  obstacleParent: {fileID: 497383849}
   obstaclesSpawnTime: 2
   obstacleSpeed: 7
 --- !u!1 &463338682
@@ -2018,6 +2050,7 @@ GameObject:
   - component: {fileID: 808247130}
   - component: {fileID: 808247129}
   - component: {fileID: 808247128}
+  - component: {fileID: 808247131}
   m_Layer: 5
   m_Name: Main Menu Button
   m_TagString: Untagged
@@ -2139,6 +2172,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808247126}
   m_CullTransparentMesh: 1
+--- !u!114 &808247131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808247126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8500b7996f92844c952ae5dc0b52ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.UISoundTrigger
+  soundType: 1
+  playType: 1
+  soundManager: {fileID: 1245711670}
 --- !u!1 &819088081
 GameObject:
   m_ObjectHideFlags: 0
@@ -2689,7 +2737,7 @@ GameObject:
   - component: {fileID: 1197705139}
   m_Layer: 0
   m_Name: Fogo
-  m_TagString: Untagged
+  m_TagString: Firewall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3577,7 +3625,7 @@ Transform:
   m_GameObject: {fileID: 1575307826}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -967.31, y: -469.45, z: 0}
+  m_LocalPosition: {x: -966.23, y: -469.33, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3757,6 +3805,7 @@ GameObject:
   - component: {fileID: 1587604734}
   - component: {fileID: 1587604733}
   - component: {fileID: 1587604732}
+  - component: {fileID: 1587604735}
   m_Layer: 5
   m_Name: Quit Game Button
   m_TagString: Untagged
@@ -3878,6 +3927,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587604730}
   m_CullTransparentMesh: 1
+--- !u!114 &1587604735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587604730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8500b7996f92844c952ae5dc0b52ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.UISoundTrigger
+  soundType: 1
+  playType: 1
+  soundManager: {fileID: 1245711670}
 --- !u!1 &1658615266
 GameObject:
   m_ObjectHideFlags: 0
@@ -5009,6 +5073,7 @@ GameObject:
   - component: {fileID: 2016689625}
   - component: {fileID: 2016689624}
   - component: {fileID: 2016689623}
+  - component: {fileID: 2016689626}
   m_Layer: 5
   m_Name: Resume Button
   m_TagString: Untagged
@@ -5092,6 +5157,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2016689624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5130,6 +5207,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016689621}
   m_CullTransparentMesh: 1
+--- !u!114 &2016689626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016689621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8500b7996f92844c952ae5dc0b52ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.UISoundTrigger
+  soundType: 1
+  playType: 1
+  soundManager: {fileID: 1245711670}
 --- !u!1 &2044195998
 GameObject:
   m_ObjectHideFlags: 0
@@ -5197,6 +5289,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 383609901}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2113868093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2113868094}
+  m_Layer: 0
+  m_Name: SceneTransition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2113868094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113868093}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 577.6939, y: 223.81343, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2125183615
@@ -5285,3 +5408,4 @@ SceneRoots:
   - {fileID: 634919946}
   - {fileID: 1843198187}
   - {fileID: 2044196001}
+  - {fileID: 2113868094}

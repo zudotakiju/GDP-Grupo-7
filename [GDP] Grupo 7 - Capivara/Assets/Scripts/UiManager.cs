@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour
 {
@@ -27,7 +28,11 @@ public class UiManager : MonoBehaviour
     public void PlayButtonHandler()
     {
         gm.StartGame();
-        //startMenuUI.SetActive(false);
+    }
+
+    public void GoToHistoryMenu()
+    {
+        SceneManager.LoadScene("History");
     }
 
 }

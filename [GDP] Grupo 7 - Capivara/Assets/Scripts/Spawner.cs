@@ -3,13 +3,18 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] obstaclesPrefabs;
-    [SerializeField] private Transform ObstacleParent;
+    [SerializeField] private Transform obstacleParent;
     public float obstaclesSpawnTime = 2f;
     public float obstacleSpeed = 1f;
     private float timeUntilObstacleSpawn;
 
 
     private float timer;
+
+    void Start()
+    {
+        GameManager.instance.onGameOver.AddListener(ClearObstacles);
+    }
 
     void Update()
     {
@@ -29,13 +34,22 @@ public class Spawner : MonoBehaviour
             timeUntilObstacleSpawn = 0f;
         }
     }
+
+    private void ClearObstacles()
+    {
+        foreach (Transform child in obstacleParent)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
     private void Spawn()
     {
         GameObject obstacleToSpawn = obstaclesPrefabs[Random.Range(0, obstaclesPrefabs.Length)];
 
         GameObject spawnedObstacle = Instantiate(obstacleToSpawn, transform.position, Quaternion.identity);
 
-        spawnedObstacle.transform.parent = ObstacleParent;
+        spawnedObstacle.transform.parent = obstacleParent;
 
         Rigidbody2D obstacleRB = spawnedObstacle.GetComponent<Rigidbody2D>();
 
